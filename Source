@@ -13,6 +13,17 @@ _G.Rewards = true
 _G.AutoChest = true
 _G.AutoSpin = true
 _G.AutoSell = true
+_G.AntiAFK = true 
+
+-- Anti AFK
+
+spawn (function()
+if _G.AntiAFK == true then 
+    game:service'Players'.LocalPlayer.Idled:connect(function()
+        bb:CaptureController()bb:ClickButton2(Vector2.new())
+        ab.Text="Roblox kicked you but we didnt let them!"wait(2)ab.Text="Status : Active"end) 
+    end
+end)
 
 -- functions
 
@@ -246,7 +257,7 @@ game:GetService("ReplicatedStorage").Remotes:FindFirstChild("get group rewards")
  function ClaimChest()
     spawn (function()
     do
-            function teleportTO(placeCFrame) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = placeCFrame+Vector3.new(0,-7,0) end teleportTO(game:GetService("Workspace").MAP.Chests["Sky Chest"].CFrame) wait(1) do 
+                function teleportTO(placeCFrame) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = placeCFrame+Vector3.new(0,-7,0) end teleportTO(game:GetService("Workspace").MAP.Chests["Sky Chest"].CFrame) wait(1) do 
                 local args = {[1] = {[1] = {[1] = "Sky Chest"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("collect chest"):FireServer(unpack(args)) wait(1) end do 
                 function teleportTO(placeCFrame) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = placeCFrame+Vector3.new(0,-7,0) end teleportTO(game:GetService("Workspace").MAP.Chests["Heavenly Chest"].CFrame) wait(1) end do 
                 local args = {[1] = {[1] = {[1] = "Heavenly Chest"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("collect chest"):FireServer(unpack(args)) wait(1) end do 
