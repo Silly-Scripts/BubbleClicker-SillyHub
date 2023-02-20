@@ -14,14 +14,22 @@ _G.AutoChest = true
 _G.AutoSpin = true
 _G.AutoSell = true
 _G.AntiAFK = true 
-
+_G.AutoPickups = true
+_G.infjmp = true 
 -- Anti AFK
 
 spawn (function()
-if _G.AntiAFK == true then 
+do 
     game:service'Players'.LocalPlayer.Idled:connect(function()
         bb:CaptureController()bb:ClickButton2(Vector2.new())
         ab.Text="Roblox kicked you but we didnt let them!"wait(2)ab.Text="Status : Active"end) 
+        do 
+        OrionLib:MakeNotification({
+            Name = "Anti AFK",
+            Content = "Anti AFK is on",
+            Image = "rbxassetid://4483345998",
+            Time = 5})
+        end 
     end
 end)
 
@@ -171,9 +179,16 @@ local args = {[1] = {[1] = {[1] = "Nightmare Egg" },[2] = { [1] = false}}}game:G
             local args = {[1] = {[1] = {[1] = "Space"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("unlock island"):FireServer(unpack(args))
             local args = {[1] = {[1] = {[1] = "The Void"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("unlock island"):FireServer(unpack(args))
             local args = {[1] = {[1] = {[1] = "Fairy World"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("unlock island"):FireServer(unpack(args))
-            local args = {[1] = {[1] = {[1] = "XP Island"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("unlock island"):FireServer(unpack(args))
+            local args = {[1] = {[1] = {[1] = "XP Island"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("unlock island"):FireServer(unpack(args)) do 
+                OrionLib:MakeNotification({
+                    Name = "Silly has Gifted you the Worlds",
+                    Content = "You have unLocked the Worlds... if this is your first time",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5
+                })
          wait(9999999999999999999)
-         end
+            end
+        end 
     end)
  end
 
@@ -199,38 +214,44 @@ local args = {[1] = {[1] = {[1] = "Nightmare Egg" },[2] = { [1] = false}}}game:G
 
  function DoCode()
     spawn (function() do
-            local args = {[1] = {[1] = {[1] = "gofast"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-            
-            local args = {[1] = {[1] = {[1] = "secrets"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-          
-            local args = {[1] = {[1] = {[1] = "season1"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-          
-            local args = {[1] = {[1] = {[1] = "bubblegum"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-           
-            local args = {[1] = {[1] = {[1] = "bannana"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-           
-            local args = {[1] = {[1] = {[1] = "bandana"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-           
-            local args = {[1] = {[1] = {[1] = "nana"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-         
-            local args = {[1] = {[1] = {[1] = "OPE"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-           
-            local args = {[1] = {[1] = {[1] = "scramble"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-          
-            local args = {[1] = {[1] = {[1] = "stayfrosty"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-          
-            local args = {[1] = {[1] = {[1] = "lucky"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-          
-            local args = {[1] = {[1] = {[1] = "happynewyear"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-           
-            local args = {[1] = {[1] = {[1] = "2022"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-            
-            local args = {[1] = {[1] = {[1] = "OmgSanta"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-           
-            local args = {[1] = {[1] = {[1] = "Rudolph"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-        
-            local args = {[1] = {[1] = {[1] = "Release"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))
-        
+            local args = {[1] = {[1] = {[1] = "gofast"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "secrets"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "season1"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args))end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "bubblegum"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "bannana"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "bandana"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "nana"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "OPE"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "scramble"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "stayfrosty"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "lucky"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "happynewyear"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "2022"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "OmgSanta"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "Rudolph"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            local args = {[1] = {[1] = {[1] = "Release"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
+            wait()
+            OrionLib:MakeNotification({
+                Name = "Codes!",
+                Content = "Applying Codes now",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
             wait(999999999999999999)
         end
     end)
@@ -381,6 +402,56 @@ function TPNightmare()
     end)
 end
 
+function Getnercoin()
+    local pickups = game:GetService("ReplicatedStorage").Remotes:FindFirstChild("get pickups"):InvokeServer({{false}, {2}})
+    vipcoins = {}
+    for i,v in pairs(pickups[1][1]) do
+        if v.a == "VIP" then
+            table.insert(vipcoins, i)
+        end
+    end
+    local target = nil
+    local tardis = math.huge
+    for i,v in pairs(game.Workspace.Stuff.Pickups:GetChildren()) do
+        if not table.find(vipcoins, v.Name) and v:FindFirstChild("POS") then
+            local mag = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.POS.Position).magnitude
+            if mag < tardis then
+                tardis = mag
+                target = v.POS
+            end
+        end
+    end
+    return target
+end
+
+function Grabpickup()
+    spawn (function()
+    while _G.AutoPickups and task.wait() do
+    if Getnercoin() ~= nil then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Getnercoin().CFrame 
+        
+                end
+            end
+        end)
+end
+
+function INFJumper()
+    local infjmp = true
+    game:GetService("UserInputService").jumpRequest:Connect(function()
+        if infjmp then
+            game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass"Humanoid":ChangeState("Jumping")
+            end
+        end)
+    end
+
+function WalkSpeed(GetSpeed)
+        getgenv().WalkSpeedValue = GetSpeed;
+        local Player = game:service'Players'.LocalPlayer
+        Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+        Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue
+        end)
+        Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue
+    end 
 
 -- Tabs 
     local AutoFarmTab = Window:MakeTab({
@@ -397,6 +468,12 @@ end
 
     local MiscTab = Window:MakeTab({
         Name = "Misc",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    local PersonTab = Window:MakeTab({
+        Name = "Player",
         Icon = "rbxassetid://4483345998",
         PremiumOnly = false
     })
@@ -517,6 +594,36 @@ end
         NightmareEgg()
     end  })
 
+    AutoFarmTab:AddToggle({
+        Name = "Farm Pickups",
+        Default = false,
+        Callback = function(Value)
+            _G.AutoPickups = Value
+            Grabpickup()
+            
+            OrionLib:MakeNotification({
+                Name = "Auto Pickup",
+                Content = "😈No Coins for them! 😈",
+                Image = "rbxassetid://4483345998",
+                Time = 5})        
+        end  })
+
+
+-- Sliders
+
+PersonTab:AddSlider({
+	Name = "Slider",
+	Min = 0,
+	Max = 150,
+	Default = 25,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Speed",
+	Callback = function(Value)
+		print(Value)
+        WalkSpeed(Value) 
+    end})
+
 -- Buttons
 
 MiscTab:AddButton({
@@ -547,6 +654,19 @@ AutoFarmTab:AddButton({
         Name = "Sell",
         Callback = function()
         Sell() 
+    end})
+
+PersonTab:AddButton({
+        Name = "INF Jump",
+        Callback = function()
+        INFJumper() 
+       
+        OrionLib:MakeNotification({
+            Name = "Inf Jump",
+            Content = "You can not turn this off",
+            Image = "rbxassetid://4483345998",
+            Time = 5})
+        
     end})
 
 end 
