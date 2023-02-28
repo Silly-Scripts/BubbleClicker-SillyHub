@@ -1,4 +1,4 @@
-# BubbleClicker-SillyHub V 1.1
+# BubbleClicker-SillyHub Version 1.1.0
 
 if you have bugs reports DM Silly#3858 
 
