@@ -593,26 +593,6 @@ function WalkSpeed(GetSpeed)
                 Gifts()
     end  })
 
-    AutoFarmTab:AddToggle({
-    Name = "Claim Chests",
-    Default = false,
-    Callback = function(Value)
-        _G.AutoEgg = Value
-        SkyChest()
-
-        HeavenlyChest()
-
-        VoidChest()
-
-        XPChest() 
-
-        SunkenChest()
-
-        CoralChest()
-
-        AthenaChest() 
-    end  })
-
     AutoFarmTab:AddParagraph("⚠️","The 'Claim Chest' feature is currenty broken please wait for fix")
 
     AutoHatchTab:AddToggle({
