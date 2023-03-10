@@ -1,9 +1,9 @@
+-- bubble gum clicker
+
 if game.PlaceId == 11746859781 then 
+
     local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
     local Window = OrionLib:MakeWindow({Name = "Silly Hub", HidePremium = false, IntroText = "Silly Hub", SaveConfig = true, ConfigFolder = "OrionTest"})
-
--- Values 
-
 
 
 -- Anti AFK
@@ -352,7 +352,7 @@ function TPBasic()
             function teleportTO(placeCFrame) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = placeCFrame+Vector3.new(0,0,0) end teleportTO(game:GetService("Workspace").MAP.Eggs["Common Egg"].EGG.CFrame) do wait(1)
             end
         end
-    end)
+    end) 
 end
 
 function TPSpotted()
@@ -513,6 +513,15 @@ function WalkSpeed(GetSpeed)
         end)
         Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue
     end 
+
+function ServerBoosts()
+    spawn (function()
+        do 
+        game:GetService("ReplicatedStorage")["Server Events"]["Super Lucky"].Value = true
+        game:GetService("ReplicatedStorage")["Server Events"]["Triple Hatch"].Value = true
+        game:GetService("ReplicatedStorage")["Server Events"]["2x Diamonds"].Value = true
+        end end)
+    end
 
 -- Tabs 
     local AutoFarmTab = Window:MakeTab({
@@ -690,6 +699,13 @@ function WalkSpeed(GetSpeed)
                 Time = 5})        
         end  })
 
+    MiscTab:AddToggle({
+            Name = "Auto Server Boost",
+            Default = false,
+            Callback = function(Value)
+                _G.AutoBoost = Value
+                ServerBoosts()
+        end  })
 
 -- Sliders
 
@@ -745,6 +761,178 @@ PersonTab:AddButton({
             Time = 5})
         
     end})
+
+end 
+
+
+
+
+
+
+
+-- princess game 
+
+
+
+
+
+
+
+
+
+if game.PlaceId == 8568266872 then 
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    local Window = OrionLib:MakeWindow({Name = "Silly Hub", HidePremium = false, IntroText = "Silly Hub", SaveConfig = true, ConfigFolder = "OrionTest"})
+
+
+    function Autoegg(EGG)
+        spawn (function()
+            while _G.AutoDoEgg == true do
+local args = {[1] = EGG,[2] = "Open1",[3] = {}}game:GetService("ReplicatedStorage").Remote.Hatch.EggHatch:InvokeServer(unpack(args))
+            wait()
+            end
+        end)
+     end
+
+     function Autodelete()
+        spawn (function()
+            while _G.delete == true do
+            local args = {[1] = math.random(1 , 40)}game:GetService("ReplicatedStorage").Remote.Weapon.WeaponDelete:InvokeServer(unpack(args))
+            wait()
+            end
+        end)
+     end 
+
+     function Killaura()
+        spawn (function()
+            while _G.killeraura == true do
+            game:GetService("ReplicatedStorage").Remote.Weapon.TakeDamage:FireServer()
+            wait(0.1)
+            end
+        end)
+     end 
+
+     function ClaimDaily()
+        spawn (function() do 
+        local args = {[1] = 1}game:GetService("ReplicatedStorage").Remote.Reward.DailyReward:InvokeServer(unpack(args)) wait()
+        local args = {[1] = 2}game:GetService("ReplicatedStorage").Remote.Reward.DailyReward:InvokeServer(unpack(args)) wait()
+        local args = {[1] = 3}game:GetService("ReplicatedStorage").Remote.Reward.DailyReward:InvokeServer(unpack(args)) wait()
+        local args = {[1] = 4}game:GetService("ReplicatedStorage").Remote.Reward.DailyReward:InvokeServer(unpack(args)) wait()
+        local args = {[1] = 5}game:GetService("ReplicatedStorage").Remote.Reward.DailyReward:InvokeServer(unpack(args)) wait()
+        local args = {[1] = 6}game:GetService("ReplicatedStorage").Remote.Reward.DailyReward:InvokeServer(unpack(args)) wait()
+     end end) end 
+
+     function WalkSpeed(GetSpeed)
+        getgenv().WalkSpeedValue = GetSpeed;
+        local Player = game:service'Players'.LocalPlayer
+        Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+        Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue
+        end)
+        Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue
+        end
+
+   -- tabs
+
+   local autofarmTab = Window:MakeTab({
+    Name = "Auto Farm",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+    })
+
+    local autohatchTab = Window:MakeTab({
+        Name = "Auto Hatch",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    local MiscTab = Window:MakeTab({
+        Name = "Misc",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    local PersonTab = Window:MakeTab({
+        Name = "Person",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+
+
+-- auto farm
+    autofarmTab:AddToggle({
+        Name = "Kill Aura",
+        Default = false,
+        Callback = function(Value)
+            _G.killeraura = Value
+            Killaura()
+    end  })
+
+-- auto hatch
+    autohatchTab:AddToggle({
+        Name = "Auto Common Egg",
+        Default = false,
+        Callback = function(Value)
+            _G.AutoDoEgg = Value
+            Autoegg(1)
+        end  })
+
+    autohatchTab:AddToggle({
+            Name = "Auto Uncommon Egg",
+            Default = false,
+            Callback = function(Value)
+                _G.AutoDoEgg = Value
+                Autoegg(2)
+        end  })
+
+    autohatchTab:AddToggle({
+            Name = "Auto Rare Egg",
+            Default = false,
+            Callback = function(Value)
+                _G.AutoDoEgg = Value
+                Autoegg(3)
+        end  })
+
+-- misc
+    MiscTab:AddToggle({
+            Name = "Delete your Inv",
+            Default = false,
+            Callback = function(Value)
+                _G.delete = Value
+                Autodelete()
+                OrionLib:MakeNotification({
+                    Name = "Deleted inv",
+                    Content = "gets rid of non equiped items",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5})
+        end  })
+
+    MiscTab:AddButton({
+            Name = "Claim Daily Rewards",
+            Callback = function()
+             ClaimDaily()
+             OrionLib:MakeNotification({
+                Name = "Daily Claimed",
+                Content = "if you haven't already",
+                Image = "rbxassetid://4483345998",
+                Time = 5})
+        end})
+
+-- person
+
+    PersonTab:AddSlider({
+            Name = "Walk Speed",
+            Min = 20,
+            Max = 300,
+            Default = 25,
+            Color = Color3.fromRGB(255,255,255),
+            Increment = 1,
+            ValueName = "Speed",
+            Callback = function(Value)
+                print(Value)
+                WalkSpeed(Value) 
+        end})
+
 
 end 
 OrionLib:Init()
