@@ -1,5 +1,6 @@
-# BubbleClicker-SillyHub Version 1.1.0
-3 Kill Monsters to Save Princess 0.3.0
+# BubbleClicker-SillyHub Version 1.1.2
+
+3 Kill Monsters to Save Princess 0.3.0 (Beta)
 
 
 if you have bugs reports DM Silly#3858 
