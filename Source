@@ -551,6 +551,13 @@ function ServerBoosts()
         PremiumOnly = false
     })
 
+    
+    local CredTab = Window:MakeTab({
+        Name = "Player",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
 -- Toggles
     AutoFarmTab:AddToggle({
         Name = "Auto Bubble",
@@ -762,6 +769,8 @@ MiscTab:AddButton({
         Callback = function()
             DoCode()
     end})
+
+    CredTab:AddParagraph("Credits","Made by: Silly#3858     Helped by: W41K3R#0363")
 
 end 
 OrionLib:Init()
