@@ -568,55 +568,61 @@ function ServerBoosts()
         wait(8.5)
         end end) end  
 
-function GetEggs()
-            spawn (function()
-        while _G.GetEgg == true do 
-            -- find the "Eggs" object
-            local eggs = game:GetService("Workspace").Stuff.Eggs
-            if not eggs then
-                print("Couldn't find the 'Eggs' object.")
-                return
-            end
-        
-            -- find all the children of the "Eggs" object
-            local eggChildren = eggs:GetChildren()
-        
-            -- find the number of egg children
-            local numEggChildren = #eggChildren
-        
-            -- generate a random index to pick a random egg child
-            math.randomseed(os.time())
-            local randomEggIndex = math.random(numEggChildren)
-        
-            -- find the random egg child and its POS children
-            local randomEggChild = eggChildren[randomEggIndex]
-            local posChildren = randomEggChild:GetChildren()
-        
-            for j, posChild in ipairs(posChildren) do
-                if posChild.Name == "POS" then
-                    -- get the CFrame of the "POS" child
-                    local cframe = posChild.CFrame
-        
-                    for k, child in ipairs(posChildren) do
-                        function teleportTO(placeCFrame) 
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = placeCFrame+Vector3.new(0,0,0) 
-                        end 
-        
-                        teleportTO(cframe)
-                        wait(0.2)
-                        local args = {[1] = {[1] = {[1] = randomEggChild.Name},[2] = {[1] = false}}}
-                        game:GetService("ReplicatedStorage").Remotes:FindFirstChild("collect egg"):FireServer(unpack(args))
-                        wait(0.2)
-                        teleportTO(game:GetService("Workspace").MAP.NPCs.Bunny.HumanoidRootPart.CFrame)
-                        wait(0.2)
-                        local args = {[1] = {[1] = {[1] = false},[2] = {[1] = 2}}}
-                        game:GetService("ReplicatedStorage").Remotes:FindFirstChild("give bunny egg"):FireServer(unpack(args))
-                        wait(0.2)
+
+    function GetEggs()
+            spawn(function()
+                while _G.GetEgg == true do 
+                    -- find the "Eggs" object
+                    local eggs = game:GetService("Workspace").Stuff.Eggs
+                    if not eggs then
+                        print("Couldn't find the 'Eggs' object.")
+                        return
                     end
+                
+                    -- find all the children of the "Eggs" object
+                    local eggChildren = eggs:GetChildren()
+                
+                    -- find the number of egg children
+                    local numEggChildren = #eggChildren
+                
+                    -- generate a random index to pick a random egg child
+                    math.randomseed(os.time())
+                    local randomEggIndex = math.random(numEggChildren)
+                
+                    -- find the random egg child and its POS children
+                    local randomEggChild = eggChildren[randomEggIndex]
+                    local posChildren = randomEggChild:GetChildren()
+                
+                    for j, posChild in ipairs(posChildren) do
+                        if posChild.Name == "POS" then
+                            -- get the CFrame of the "POS" child
+                            local cframe = posChild.CFrame
+                
+                            for k, child in ipairs(posChildren) do
+                                function teleportTO(placeCFrame) 
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = placeCFrame + Vector3.new(0, 0, 0)
+                                end 
+                
+                                teleportTO(cframe)
+                                wait(0.2)
+                                local args = {[1] = {[1] = {[1] = randomEggChild.Name}, [2] = {[1] = false}}}
+                                game:GetService("ReplicatedStorage").Remotes:FindFirstChild("collect egg"):FireServer(unpack(args))
+                                wait(0.2)
+                                teleportTO(game:GetService("Workspace").MAP.NPCs.Bunny.HumanoidRootPart.CFrame)
+                                wait(0.2)
+                                local args = {[1] = {[1] = {[1] = false}, [2] = {[1] = 2}}}
+                                game:GetService("ReplicatedStorage").Remotes:FindFirstChild("give bunny egg"):FireServer(unpack(args))
+                                wait(0.2)
+                            end
+                        end
+                    end
+                    
+                    -- wait a little bit before looking for another egg
+                    wait()
                 end
-            end
+            end)
         end
-        end) end 
+        
 
 function KeyFind()
             spawn (function()
@@ -722,6 +728,7 @@ function GetEggers(EggChosed)
                 end
             end)
         end
+        
 
 -- Tabs 
     local AutoFarmTab = Window:MakeTab({
@@ -959,7 +966,7 @@ function GetEggers(EggChosed)
             end  })
 
 EasterTab:AddToggle({
-    Name = " Auto Grab Eggs",
+    Name = "Auto Grab Eggs",
         Default = false,
         Callback = function(Value)
             _G.GetEgg = Value
@@ -972,7 +979,7 @@ EasterTab:AddToggle({
             Callback = function(Value)
                 _G.Shard = Value
                 GetShards()
-        
+
             end  })
 
 
@@ -1046,393 +1053,6 @@ MiscTab:AddButton({
 
 
     CredTab:AddParagraph("Credits","Made by: Silly#3858     Helped by: W41K3R#0363")
-
-end 
-
-
-
-
-
-if game.PlaceId == 12851888521 then 
-
-    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-    local Window = OrionLib:MakeWindow({Name = "Silly Hub", HidePremium = false, IntroText = "Silly Hub", SaveConfig = true, ConfigFolder = "OrionTest"})
-
-
-
-        do 
-            game:service'Players'.LocalPlayer.Idled:connect(function()
-                bb:CaptureController()bb:ClickButton2(Vector2.new())
-                ab.Text="Roblox kicked you but we didnt let them!"wait(2)ab.Text="Status : Active"end) 
-                do 
-                OrionLib:MakeNotification({
-                    Name = "Anti AFK",
-                    Content = "Anti AFK is on",
-                    Image = "rbxassetid://4483345998",
-                    Time = 5})
-                end 
-            end
-
-
-    function FarmWin()
-        spawn (function()
-    while _G.WinFarm == true do
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-341.253693, -1.39265466, -1294.73035, 0.993537724, 0, 0.113502279, 0, 1, 0, -0.113502279, 0, 0.993537724)
-    wait(0.87)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-271.318329, 3.38004565, -1585.6853, 0.946001828, 0, 0.324161232, 0, 1, 0, -0.324161232, 0, 0.946001828)
-    wait(0.87)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-185.823517, 3.38032222, -1609.427, 0.963569164, 0, 0.267459214, 0, 1, 0, -0.267459214, 0, 0.963569164)
-    wait(0.87)
-    end end) end
-    
-    
-    function ClaimCode()
-        spawn(function()
-            if _G.CodeClaim == true then do 
-    local args = {[1] = 4,[2] = "snow"}game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:redeemCode"):FireServer(unpack(args)) wait()
-    local args = {[1] = 6,[2] = "secret"}game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:redeemCode"):FireServer(unpack(args)) wait()
-    local args = {[1] = 7,[2] = "roblox"}game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:redeemCode"):FireServer(unpack(args)) wait()
-    local args = {[1] = 7,[2] = "noob"}game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:redeemCode"):FireServer(unpack(args)) wait()
-    local args = {[1] = 10,[2] = "axel"}game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:redeemCode"):FireServer(unpack(args)) wait()
-    end end end) end 
-    
-    
-    function OpenFarm()
-        spawn(function()
-     while _G.AutoEgg == true do 
-    local args = {
-        [1] = 9,
-        [2] = "Farm Egg"}game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:openEgg"):FireServer(unpack(args))
-        wait(0.5)end 
-        end) end
-    
-    function OpenForrest()
-            spawn(function()
-         while _G.AutoEgg == true do 
-        local args = {
-        [1] = 14,
-        [2] = "Forest Egg"}game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:openEgg"):FireServer(unpack(args))
-            wait(0.5)end 
-        end) end
-    
-        function OpenJungle()
-            spawn(function()
-         while _G.AutoEgg == true do 
-    local args = {
-        [1] = 19,
-        [2] = "Jungle Egg"}
-    game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:openEgg"):FireServer(unpack(args))
-    wait(0.5)end 
-        end) end
-    
-        function OpenWater()
-            spawn(function()
-         while _G.AutoEgg == true do 
-        local args = {
-        [1] = 20,
-        [2] = "Water Egg"}game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:openEgg"):FireServer(unpack(args))
-            wait(0.5)end 
-        end) end
-    
-        function OpenMidas()
-            spawn(function()
-         while _G.AutoEgg == true do 
-            local args = {[1] = 51,
-            [2] = "midas"}
-            game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:openEgg"):FireServer(unpack(args))
-            wait(0.5)end 
-            end) end
-    
-        function OpenCave()
-            spawn(function()
-         while _G.AutoEgg == true do 
-    local args = {
-        [1] = 28,
-        [2] = "Cave Egg"
-    }game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:openEgg"):FireServer(unpack(args))
-            wait(0.5)end 
-        end) end
-    
-        function OpenFlame()
-            spawn(function()
-         while _G.AutoEgg == true do 
-    local args = {
-        [1] = 31,
-        [2] = "Flame Egg"
-    }game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:openEgg"):FireServer(unpack(args))
-            wait(0.5)end 
-        end) end
-    
-        function OpenCelestial()
-            spawn(function()
-         while _G.AutoEgg == true do 
-    local args = {
-        [1] = 34,
-        [2] = "Celestial Egg"
-    }game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:openEgg"):FireServer(unpack(args))
-            wait(0.5)end 
-        end) end
-    
-    
-        function OpenTemple()
-            spawn(function()
-         while _G.AutoEgg == true do 
-    local args = {
-        [1] = 110,
-        [2] = "Temple Egg"
-    }game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:openEgg"):FireServer(unpack(args))
-        wait(0.5)end 
-        end) end
-    
-        function OpenIce()
-            spawn(function()
-         while _G.AutoEgg == true do 
-    local args = {
-        [1] = 117,
-        [2] = "Ice Egg"}game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:openEgg"):FireServer(unpack(args))
-            wait(0.5)end 
-        end) end
-    
-        function OpenAlien()
-            spawn(function()
-         while _G.AutoEgg == true do 
-    local args = {
-        [1] = 124,
-        [2] = "Alien Egg"
-    }game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:openEgg"):FireServer(unpack(args))
-            wait(0.5)end 
-        end) end
-    
-        function OpenSwamp()
-            spawn(function()
-         while _G.AutoEgg == true do 
-    local args = {
-        [1] = 127,
-        [2] = "Swamp Egg"
-    }game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:openEgg"):FireServer(unpack(args))
-            wait(0.5)end 
-        end) end
-    
-        function OpenCandy()
-            spawn(function()
-         while _G.AutoEgg == true do 
-    local args = {
-        [1] = 132,
-        [2] = "Candy Egg"
-    }game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:openEgg"):FireServer(unpack(args))
-            wait(0.5)end 
-        end) end
-    
-    function INFJumper()
-            spawn (function()
-            game:GetService("UserInputService").jumpRequest:Connect(function()
-                if _G.infjmp == true then
-                    game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass"Humanoid":ChangeState("Jumping")
-                    end 
-        end) end) end 
-
-    function WalkSpeed(GetSpeed)
-            getgenv().WalkSpeedValue = GetSpeed;
-            local Player = game:service'Players'.LocalPlayer
-            Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
-            Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue
-            end)
-            Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue
-        end 
-
-        function CodeChest()
-            spawn(function()
-         while _G.AutoCode == true do 
-            local args = {[1] = 44}game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:claimDailyChest"):FireServer(unpack(args))
-            wait(10)end 
-        end) end
-
-
--- tabs 
-
-local FarmTab = Window:MakeTab({
-	Name = "Auto Farm",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-local HatchTab = Window:MakeTab({
-	Name = "Hatching!",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-local PlayerTab = Window:MakeTab({
-	Name = "Player",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-local CredTab = Window:MakeTab({
-	Name = "Credit",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
--- toggles/buttons 
-
-FarmTab:AddToggle({
-	Name = "Farm Wins",
-	Default = false,
-	Callback = function(Value)
-        _G.WinFarm = Value
-		FarmWin()
-	end    
-})
-
-HatchTab:AddToggle({
-	Name = "Farm Egg!",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoEgg = Value
-        OpenFarm()
-	end    
-})
-
-HatchTab:AddToggle({
-	Name = "Forrest Egg",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoEgg = Value
-        OpenForrest()
-	end    
-})
-
-HatchTab:AddToggle({
-	Name = "Jungle Egg",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoEgg = Value
-        OpenJungle()
-	end    
-})
-
-HatchTab:AddToggle({
-	Name = "Water Egg",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoEgg = Value
-        OpenWater()
-	end    
-})
-
-HatchTab:AddToggle({
-	Name = "Midas Egg",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoEgg = Value
-        OpenMidas()
-	end    
-})
-
-HatchTab:AddToggle({
-	Name = "Cave Egg",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoEgg = Value
-        OpenCave()
-	end    
-})
-
-HatchTab:AddToggle({
-	Name = "Flame Egg",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoEgg = Value
-        OpenFlame()
-	end    
-})
-
-HatchTab:AddToggle({
-	Name = "Celestial Egg",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoEgg = Value
-        OpenCelestial()
-	end    
-})
-
-HatchTab:AddToggle({
-	Name = "Temple Egg",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoEgg = Value
-        OpenTemple()
-	end    
-})
-
-HatchTab:AddToggle({
-	Name = "Ice Egg",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoEgg = Value
-        OpenIce()
-	end    
-})
-
-HatchTab:AddToggle({
-	Name = "Alien Egg",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoEgg = Value
-        OpenAlien()
-	end    
-})
-
-HatchTab:AddToggle({
-	Name = "Swamp Egg",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoEgg = Value
-        OpenSwamp()
-	end    
-})
-
-HatchTab:AddToggle({
-	Name = "Candy Egg",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoEgg = Value
-        OpenCandy()
-	end    
-})
-
-PlayerTab:AddToggle({
-    Name = "Inf Jump",
-    Default = false,
-    Callback = function(Value)
-        _G.infjmp = Value
-        INFJumper() 
-end  })
-
-FarmTab:AddToggle({
-    Name = "Auto Code Chest",
-    Default = false,
-    Callback = function(Value)
-        _G.AutoCode = Value
-        CodeChest()
-end  })
-
-PlayerTab:AddSlider({
-	Name = "Walk Speed",
-	Min = 0,
-	Max = 150,
-	Default = 25,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Speed",
-	Callback = function(Value)
-		print(Value)
-        WalkSpeed(Value) 
-    end})
-
-
-CredTab:AddParagraph("Credits","Made by: Silly#3858     Helped by: Jankya")
 
 end 
 OrionLib:Init()
