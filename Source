@@ -58,7 +58,7 @@ function DoBubble()
                     Image = "rbxassetid://4483345998",
                     Time = 5
                 })
-         wait(9999999999999999999)
+         wait()
             end
         end 
     end)
@@ -128,7 +128,7 @@ function DoBubble()
             local args = {[1] = {[1] = {[1] = "spongebob"},[2] = {[1] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("redeem twitter code"):InvokeServer(unpack(args)) end do 
             wait(1)
 
-            wait(999999999999999999)
+            wait()
         end
     end)
  end
@@ -136,7 +136,7 @@ function DoBubble()
  function GroupRewards()
     spawn (function() do 
         local args = {[1] = {[1] = {[1] = false},[2] = {[1] = 2}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("get group rewards"):InvokeServer(unpack(args))
-         wait(999999999999999999999)
+         wait()
         end
     end)
  end
@@ -208,7 +208,7 @@ function AthenaChest()
     spawn (function()
        do
     local args = {[1] = {[1] = {[1] = false},[2] = {[1] = 2}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("free wheel spin"):InvokeServer(unpack(args))
-            wait(99999999999999999999999)
+            wait()
         end
     end)
  end
@@ -402,6 +402,48 @@ function TPSnail()
         end
     end end) end
 
+function TPBunny()
+        spawn (function()
+            if _G.AutoEgg == true then do
+                function teleportTO(placeCFrame) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = placeCFrame+Vector3.new(0,0,0) end teleportTO(game:GetService("Workspace").MAP.Eggs["Bunny Egg"].EGG.Ears.CFrame) do wait(1)
+                    wait(0.5)
+                    do local args = {[1] = {[1] = {[1] = true,[2] = "Bunny Egg"},[2] = {[1] = false,[2] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("toggle auto hatch"):FireServer(unpack(args))
+                    wait(0.5)
+                    local args = {[1] = {[1] = {[1] = "Bunny Egg",[2] = true},[2] = {[1] = false,[2] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+                    
+            end
+                end 
+            end
+        end end) end
+
+function TPChocolate()
+            spawn (function()
+                if _G.AutoEgg == true then do
+                    function teleportTO(placeCFrame) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = placeCFrame+Vector3.new(0,0,0) end teleportTO(game:GetService("Workspace").MAP.Eggs["Chocolate Egg"].EGG.CFrame) do wait(1)
+                        wait(0.5)
+                        do local args = {[1] = {[1] = {[1] = true,[2] = "Chocolate Egg"},[2] = {[1] = false,[2] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("toggle auto hatch"):FireServer(unpack(args))
+                        wait(0.5)
+                        local args = {[1] = {[1] = {[1] = "Chocolate Egg",[2] = true},[2] = {[1] = false,[2] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+                        
+                end
+                    end 
+                end
+    end end) end
+
+function TPDucky()
+                spawn (function()
+                    if _G.AutoEgg == true then do
+                        function teleportTO(placeCFrame) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = placeCFrame+Vector3.new(0,0,0) end teleportTO(game:GetService("Workspace").MAP.Eggs["Ducky Egg"].Base.CFrame) do wait(1)
+                            wait(0.5)
+                            do local args = {[1] = {[1] = {[1] = true,[2] = "Ducky Egg"},[2] = {[1] = false,[2] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("toggle auto hatch"):FireServer(unpack(args))
+                            wait(0.5)
+                            local args = {[1] = {[1] = {[1] = "Ducky Egg",[2] = true},[2] = {[1] = false,[2] = false}}}game:GetService("ReplicatedStorage").Remotes:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+                            
+                    end
+                        end 
+                    end
+                end end) end
+
 function Getnercoin()
     local pickups = game:GetService("ReplicatedStorage").Remotes:FindFirstChild("get pickups"):InvokeServer({{false}, {2}})
     vipcoins = {}
@@ -526,6 +568,161 @@ function ServerBoosts()
         wait(8.5)
         end end) end  
 
+function GetEggs()
+            spawn (function()
+        while _G.GetEgg == true do 
+            -- find the "Eggs" object
+            local eggs = game:GetService("Workspace").Stuff.Eggs
+            if not eggs then
+                print("Couldn't find the 'Eggs' object.")
+                return
+            end
+        
+            -- find all the children of the "Eggs" object
+            local eggChildren = eggs:GetChildren()
+        
+            -- find the number of egg children
+            local numEggChildren = #eggChildren
+        
+            -- generate a random index to pick a random egg child
+            math.randomseed(os.time())
+            local randomEggIndex = math.random(numEggChildren)
+        
+            -- find the random egg child and its POS children
+            local randomEggChild = eggChildren[randomEggIndex]
+            local posChildren = randomEggChild:GetChildren()
+        
+            for j, posChild in ipairs(posChildren) do
+                if posChild.Name == "POS" then
+                    -- get the CFrame of the "POS" child
+                    local cframe = posChild.CFrame
+        
+                    for k, child in ipairs(posChildren) do
+                        function teleportTO(placeCFrame) 
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = placeCFrame+Vector3.new(0,0,0) 
+                        end 
+        
+                        teleportTO(cframe)
+                        wait(0.2)
+                        local args = {[1] = {[1] = {[1] = randomEggChild.Name},[2] = {[1] = false}}}
+                        game:GetService("ReplicatedStorage").Remotes:FindFirstChild("collect egg"):FireServer(unpack(args))
+                        wait(0.2)
+                        teleportTO(game:GetService("Workspace").MAP.NPCs.Bunny.HumanoidRootPart.CFrame)
+                        wait(0.2)
+                        local args = {[1] = {[1] = {[1] = false},[2] = {[1] = 2}}}
+                        game:GetService("ReplicatedStorage").Remotes:FindFirstChild("give bunny egg"):FireServer(unpack(args))
+                        wait(0.2)
+                    end
+                end
+            end
+        end
+        end) end 
+
+function KeyFind()
+            spawn (function()
+                do
+                    function teleportTO(placeCFrame) 
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = placeCFrame+Vector3.new(0,0,0) 
+                    end 
+                    teleportTO(game:GetService("Workspace").MAP.KEY) end 
+            end)
+         end
+
+
+function GetShards()
+            spawn(function()
+                while _G.Shard == true do 
+                    local shards = game:GetService("Workspace").MAP.Shards
+                    if not shards then
+                        print("Couldn't find the 'Shards' object.")
+                        wait(2)
+                        return
+                    end
+                    
+                    local goldCFrame = nil
+                    local shardName = nil
+                    
+                    for _, shard in ipairs(shards:GetChildren()) do
+                        local gold = shard:FindFirstChild("Meshes/Ice Shard_Icosphere")
+                        if gold then
+                            goldCFrame = gold.CFrame
+                            shardName = shard.Name
+                            break -- exit the loop as soon as we find the first Gold CFrame
+                        end
+                    end
+                    
+                    if goldCFrame then
+                        function teleportTO(placeCFrame) 
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = placeCFrame + Vector3.new(0,0,0) 
+                        end 
+                        teleportTO(goldCFrame)
+                        wait(0.2)
+                        local args = {[1] = {[1] = {[1] = shardName},[2] = {[1] = false}}}
+                        game:GetService("ReplicatedStorage").Remotes:FindFirstChild("take shard"):FireServer(unpack(args))
+                        wait(0.2)
+                    else
+                        print("Couldn't find a Gold CFrame.")
+                    end
+                    
+                    wait(1) -- add a 1 second delay before the next loop iteration
+                end 
+            end)
+        end
+
+function GetEggers(EggChosed)
+            spawn(function()
+                while _G.FindEgg == true do 
+                    -- find the "Eggs" object
+                    local eggs = game:GetService("Workspace").Stuff.Eggs
+                    if not eggs then
+                        print("Couldn't find the 'Eggs' object.")
+                        return
+                    end
+                    
+                    -- find all the children of the "Eggs" object
+                    local eggChildren = eggs:GetChildren()
+                    
+                    -- find the number of egg children
+                    local numEggChildren = #eggChildren
+                    
+                    -- generate a random index to pick a random egg child
+                    math.randomseed(os.time())
+                    local randomEggIndex = math.random(numEggChildren)
+                    
+                    -- find the random egg child and its POS children
+                    local randomEggChild = eggChildren[randomEggIndex]
+                    local posChildren = randomEggChild:GetChildren()
+                    
+                    for j, posChild in ipairs(posChildren) do
+                        if posChild.Name == "POS" then
+                            -- get the CFrame of the "POS" child
+                            local cframe = posChild.CFrame
+                            
+                            for k, child in ipairs(posChildren) do
+                                if child.Name == EggChosed then
+                                    function teleportTO(placeCFrame) 
+                                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = placeCFrame+Vector3.new(0,0,0) 
+                                    end 
+                                    
+                                    teleportTO(cframe)
+                                    wait(0.15)
+                                    local args = {[1] = {[1] = {[1] = randomEggChild.Name},[2] = {[1] = false}}}
+                                    game:GetService("ReplicatedStorage").Remotes:FindFirstChild("collect egg"):FireServer(unpack(args))
+                                    wait(0.15)
+                                    teleportTO(game:GetService("Workspace").MAP.NPCs.Bunny.HumanoidRootPart.CFrame)
+                                    wait(0.15)
+                                    local args = {[1] = {[1] = {[1] = false},[2] = {[1] = 2}}}
+                                    game:GetService("ReplicatedStorage").Remotes:FindFirstChild("give bunny egg"):FireServer(unpack(args))
+                                    wait(0.25)
+                                end
+                            end
+                        end
+                    end
+                    wait() -- wait before checking for eggs again
+                end
+            end)
+        end
+
 -- Tabs 
     local AutoFarmTab = Window:MakeTab({
         Name = "Auto Farm",
@@ -535,6 +732,12 @@ function ServerBoosts()
 
     local AutoHatchTab = Window:MakeTab({
         Name = "Auto Hatch",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    local EasterTab = Window:MakeTab({
+        Name = "Easter!",
         Icon = "rbxassetid://4483345998",
         PremiumOnly = false
     })
@@ -553,7 +756,7 @@ function ServerBoosts()
 
     
     local CredTab = Window:MakeTab({
-        Name = "Player",
+        Name = "Credit",
         Icon = "rbxassetid://4483345998",
         PremiumOnly = false
     })
@@ -695,6 +898,33 @@ function ServerBoosts()
 
     end  })
 
+    AutoHatchTab:AddToggle({
+        Name = "Chocolate Egg",
+        Default = false,
+        Callback = function(Value)
+            _G.AutoEgg = Value
+            TPChocolate()
+     
+        end  })
+
+    AutoHatchTab:AddToggle({
+            Name = "Ducky Egg",
+            Default = false,
+            Callback = function(Value)
+                _G.AutoEgg = Value
+                TPDucky()
+         
+            end  })
+
+    AutoHatchTab:AddToggle({
+                Name = "Bunny Egg",
+                Default = false,
+                Callback = function(Value)
+                    _G.AutoEgg = Value
+                    TPBunny()
+             
+                end  })
+
     AutoFarmTab:AddToggle({
         Name = "Farm Pickups",
         Default = false,
@@ -727,6 +957,43 @@ function ServerBoosts()
                 _G.ClaimSeason = Value
                 Seasopass()
             end  })
+
+EasterTab:AddToggle({
+    Name = " Auto Grab Eggs",
+        Default = false,
+        Callback = function(Value)
+            _G.GetEgg = Value
+            GetEggs()
+        end  })
+
+        EasterTab:AddToggle({
+            Name = "Find Shards",
+            Default = false,
+            Callback = function(Value)
+                _G.Shard = Value
+                GetShards()
+        
+            end  })
+
+
+    EasterTab:AddToggle({
+                Name = "Find Certain Egg",
+                Default = false,
+                Callback = function(Value)
+                    _G.FindEgg = Value
+                    GetEggers(_G.EggChoice)
+        end  })
+
+        EasterTab:AddDropdown({
+            Name = "Egg Choice",
+            Default = "Common Egg",
+            Options = {"Common Egg", "Golden Egg", "Striped Egg", "Frosted Egg", "Magma Egg", "Angel Egg", "Dragon Egg", "Wizard Egg", "Scrambled", "Egg of Growth", "Tomato Egg", "Lantern Egg"},
+            Callback = function(Value)
+                _G.EggChoice = Value
+            end    
+        })
+
+        EasterTab:AddParagraph("Find Egg","Takes A while to Scan Eggs Sorry!")
 
 -- Sliders
 
@@ -770,6 +1037,14 @@ MiscTab:AddButton({
             DoCode()
     end})
 
+    EasterTab:AddButton({
+
+        Name = "Find Hidden Key",
+        Callback = function()
+            KeyFind()
+    end})
+
+
     CredTab:AddParagraph("Credits","Made by: Silly#3858     Helped by: W41K3R#0363")
 
 end 
@@ -783,6 +1058,20 @@ if game.PlaceId == 12851888521 then
     local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
     local Window = OrionLib:MakeWindow({Name = "Silly Hub", HidePremium = false, IntroText = "Silly Hub", SaveConfig = true, ConfigFolder = "OrionTest"})
 
+
+
+        do 
+            game:service'Players'.LocalPlayer.Idled:connect(function()
+                bb:CaptureController()bb:ClickButton2(Vector2.new())
+                ab.Text="Roblox kicked you but we didnt let them!"wait(2)ab.Text="Status : Active"end) 
+                do 
+                OrionLib:MakeNotification({
+                    Name = "Anti AFK",
+                    Content = "Anti AFK is on",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5})
+                end 
+            end
 
 
     function FarmWin()
